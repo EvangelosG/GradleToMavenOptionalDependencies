@@ -49,7 +49,7 @@ afterEvaluate { project ->
 
                 pom.withXml {
                     asNode().dependencies.dependency.findAll {
-                        it.artifactId.text() != ''
+                        it.artifactId.optional == 'true'
                     }.each {
                         if (it.optional)
                             it.optional.value = 'true'
